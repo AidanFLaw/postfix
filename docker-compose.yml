@@ -1,0 +1,8 @@
+version: '3'
+services:
+  postfix:
+    build: .
+    container_name: postfix
+    ports:
+      - 25:25
+    restart: always

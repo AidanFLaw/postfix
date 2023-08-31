@@ -1,0 +1,16 @@
+myhostname = localhost
+relayhost = [smtp.office365.com]:587
+smtp_use_tls = yes
+smtp_always_send_ehlo = yes
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options = noanonymous
+smtp_sasl_tls_security_options = noanonymous
+smtp_tls_security_level = encrypt
+#smtp_generic_maps = hash:/etc/postfix/generic
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+smtp_tls_cert_file = /etc/ssl/certs/cert.pem
+smtp_tls_key_file = /etc/ssl/private/cert.eky
+smtpd_relay_restrictions = permit_mynetworks permit_tls_clientcerts defer_unauth_destination, permit_sasl_authenticated
+mydestination = $mydomain, localhost.$mydomain, localhost
+mynetworks = 127.0.0.0/8, 172.23.0.0/16
