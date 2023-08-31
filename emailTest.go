@@ -24,7 +24,7 @@ func main() {
 
 	auth := smtp.PlainAuth("", "", "", server)
 
-	err := smtp.SendMail(server+":587", auth, from, []string{to}, message)
+	err := smtp.SendMail(server+":25", auth, from, []string{to}, message)
 	if err != nil {
 		log.Fatal("Error sending email:", err)
 	} else {
